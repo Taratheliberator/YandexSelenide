@@ -7,12 +7,12 @@ import org.junit.jupiter.api.extension.ExtensionContext;
 
 public class ScreenshotExtension implements BeforeTestExecutionCallback, AfterTestExecutionCallback {
     @Override
-    public void beforeTestExecution(ExtensionContext context) throws Exception {
+    public void beforeTestExecution(ExtensionContext context) {
 
     }
 
     @Override
-    public void afterTestExecution(ExtensionContext context) throws Exception {
+    public void afterTestExecution(ExtensionContext context)  {
         if (context.getExecutionException().isPresent()) {
 
             Selenide.screenshot("failure_screenshot");
