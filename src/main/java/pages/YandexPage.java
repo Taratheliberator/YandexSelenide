@@ -94,10 +94,10 @@ public class YandexPage {
      */
     @Step("Переход на следующую страницу результатов поиска")
     public boolean goToNextPage() {
+        SelenideElement nextPageButton = $(By.xpath("//div[@data-baobab-name='next']"));
 
-        ElementsCollection nextPageButtons = $$x("//div[@data-baobab-name='next']");
-        if (!nextPageButtons.isEmpty() && nextPageButtons.first().isDisplayed()) {
-            nextPageButtons.first().click();
+        if (nextPageButton.isEnabled()) {
+            nextPageButton.click();
             return true;
         } else {
             return false;
